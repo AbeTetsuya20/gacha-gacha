@@ -26,27 +26,27 @@ func DrawN(p *Player, n int) ([]*Card, map[Rarity]int) {
 }
 
 func draw() *Card {
+
 	num := rand.Intn(100)
 
-	normal := [...]{"スライム1","スライム2"}
-	rare := [...]{"オーク1","オーク2"}
-	super := [...]{"ドラゴン1","ドラゴン2"}
-	xrare := [...]{"イフリート1","イフリート2"}
+	normal := [...] string {"スライム1","スライム2"}
+	rare := [...] string{"オーク1","オーク2"}
+	super := [...] string {"ドラゴン1","ドラゴン2"}
+	xrare := [...] string {"イフリート1","イフリート2"}
 
 	//numでレア度が決まる→choiceでインデックスが決まる→そのインデックスに対応したキャラ名がreturnされる
 	switch {
 	case num < 80:
-		choice := rand.Intn(len(normal))
+		choice := rand.Intn( len(normal) )
 		return &Card{Rarity: RarityN, Name:normal[choice]}
 	case num < 95:
 		choice := rand.Intn(len(rare))
 		return &Card{Rarity: RarityR, Name:rare[choice]}
 	case num < 99:
-		choice := rand.Intn(len(Normal))
+		choice := rand.Intn(len(super))
 		return &Card{Rarity: RaritySR, Name: super[choice]}
 	default:
-		choice := rand.Intn(len(Normal))
+		choice := rand.Intn(len(xrare))
 		return &Card{Rarity: RarityXR, Name: xrare[choice]}
 	}
 }
-
