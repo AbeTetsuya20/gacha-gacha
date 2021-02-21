@@ -29,11 +29,6 @@ func draw() *Card {
 
 	num := rand.Intn(100)
 
-	normal := [...] string {"スライム1","スライム2"}
-	rare := [...] string{"オーク1","オーク2"}
-	super := [...] string {"ドラゴン1","ドラゴン2"}
-	xrare := [...] string {"イフリート1","イフリート2"}
-
 	//numでレア度が決まる→choiceでインデックスが決まる→そのインデックスに対応したキャラ名がreturnされる
 	switch {
 	case num < 80:
